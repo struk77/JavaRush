@@ -1,0 +1,76 @@
+package com.javarush.test.level06.lesson11.bonus03;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+/* Задача по алгоритмам
+Задача: Написать программу, которая вводит с клавиатуры 5 чисел и выводит их в возрастающем порядке.
+Пример ввода:
+3
+2
+15
+6
+17
+Пример вывода:
+2
+3
+6
+15
+17
+*/
+
+public class Solution
+{
+    public static void main(String[] args) throws Exception
+    {
+        BufferedReader reader  = new BufferedReader(new InputStreamReader(System.in));
+
+        //Напишите тут ваш код
+        int a,b,c,d,e,f;
+        String s = reader.readLine();
+        a = Integer.parseInt(s);
+        s = reader.readLine();
+        b = Integer.parseInt(s);
+        s = reader.readLine();
+        c = Integer.parseInt(s);
+        s = reader.readLine();
+        d = Integer.parseInt(s);
+        s = reader.readLine();
+        e = Integer.parseInt(s);
+        
+        for (int i = 1; i < 5; i++)
+        {
+          if (a > b)
+          {
+              f = a;
+              a = b;
+              b = f;
+          }
+          if (b > c)
+            {
+                f = b;
+                b = c;
+                c = f;
+            }
+          if (c > d)
+            {
+                f = c;
+                c = d;
+                d = f;
+            }
+          if (d > e)
+            {
+                f = d;
+                d = e;
+                e = f;
+            }
+
+        }
+
+        System.out.println(a);
+        System.out.println(b);
+        System.out.println(c);
+        System.out.println(d);
+        System.out.println(e);
+    }
+}
