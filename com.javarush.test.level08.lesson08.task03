@@ -58,9 +58,9 @@ public class Solution
     public static void main(String[] args)
     {
         HashMap<String, String> mapp = createMap();
-        int n, f;
-        n = getCountTheSameFirstName(mapp, "John1");
-        f = getCountTheSameLastName(mapp, "Dow1");
+        //int n, f;
+        int n = getCountTheSameFirstName(mapp, "John1");
+        int f = getCountTheSameLastName(mapp, "Dow1");
         System.out.println("Name: " + n + ", Surname: " + f);
 
     }
