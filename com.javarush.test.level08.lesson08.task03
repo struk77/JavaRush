@@ -1,0 +1,67 @@
+package com.javarush.test.level08.lesson08.task03;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Map;
+
+/* Одинаковые имя и фамилия
+Создать словарь (Map<String, String>) занести в него десять записей по принципу «Фамилия» - «Имя».
+Проверить сколько людей имеют совпадающие с заданным имя или фамилию.
+*/
+
+public class Solution
+{
+    public static HashMap<String, String> createMap()
+    {
+        //Напишите тут ваш код
+        HashMap<String, String> map1 = new HashMap<String, String>();
+        map1.put("Dow1", "John1");
+        map1.put("Dow2", "John2");
+        map1.put("Dow3", "John3");
+        map1.put("Dow4", "John1");
+        map1.put("Dow5", "John2");
+        map1.put("Dow6", "John3");
+        map1.put("Dow7", "John1");
+        map1.put("Dow8", "John2");
+        map1.put("Dow9", "John3");
+        map1.put("Dow10", "John1");
+        return map1;
+    }
+
+    public static int getCountTheSameFirstName(HashMap<String, String> map, String name)
+    {
+        //Напишите тут ваш код
+        int i = 0;
+        for (Iterator<Map.Entry<String, String>> iterator = map.entrySet().iterator(); iterator.hasNext(); )
+        {
+            Map.Entry<String, String> pair = iterator.next();
+            if (pair.getValue() == name)
+                i++;
+        }
+        return i;
+    }
+
+    public static int getCountTheSameLastName(HashMap<String, String> map, String familiya)
+    {
+        //Напишите тут ваш код
+        int j = 0;
+        for (Iterator<Map.Entry<String, String>> iterator = map.entrySet().iterator(); iterator.hasNext(); )
+        {
+            Map.Entry<String, String> pair = iterator.next();
+            if (pair.getKey() == familiya)
+                j++;
+        }
+        return j;
+    }
+
+    public static void main(String[] args)
+    {
+        HashMap<String, String> mapp = createMap();
+        int n, f;
+        n = getCountTheSameFirstName(mapp, "John1");
+        f = getCountTheSameLastName(mapp, "Dow1");
+        System.out.println("Name: " + n + ", Surname: " + f);
+
+    }
+}
