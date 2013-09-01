@@ -1,0 +1,121 @@
+package com.javarush.test.level08.lesson11.home06;
+
+/* Вся семья в сборе
+1. Создай класс Human с полями имя (String), пол (boolean), возраст (int), дети (ArrayList<Human>).
+2. Создай объекты и заполни их так, чтобы получилось: два дедушки, две бабушки, отец, мать, трое детей.
+3. Вывести все объекты Human на экран.
+*/
+
+import java.util.ArrayList;
+
+public class Solution
+{
+    public static void main(String[] args)
+    {
+        //Написать тут ваш код
+        Human dedf = new Human();
+        Human dedm = new Human();
+        Human babf = new Human();
+        Human babm = new Human();
+        Human father = new Human();
+        Human mother = new Human();
+        Human son1 = new Human();
+        Human son2 = new Human();
+        Human son3 = new Human();
+
+        ArrayList<Human> children1 = new ArrayList<Human>(3);
+        ArrayList<Human> children2 = new ArrayList<Human>(1);
+        ArrayList<Human> children3 = new ArrayList<Human>(1);
+
+        children1.add(father);
+        children2.add(mother);
+        children3.add(son1);
+        children3.add(son2);
+        children3.add(son3);
+
+        dedf.name = "Степан";
+        dedf.age = 70;
+        dedf.sex = true;
+        dedf.children = children1;
+
+        dedm.name = "Федор";
+        dedm.age = 70;
+        dedm.sex = true;
+        dedm.children = children2;
+
+        babf.name = "Вера";
+        babf.age = 70;
+        babf.sex = false;
+        babf.children = children1;
+
+        babm.name = "Люда";
+        babm.age = 70;
+        babm.sex = false;
+        babm.children = children2;
+
+        father.name = "Алексей";
+        father.age = 35;
+        father.sex = true;
+        father.children = children3;
+
+        mother.name = "Наталья";
+        mother.age = 35;
+        mother.sex = false;
+        mother.children = children3;
+
+        son1.name = "Витя1";
+        son1.sex = true;
+        son1.age = 15;
+
+        son2.name = "Витя2";
+        son2.sex = true;
+        son2.age = 15;
+
+        son3.name = "Витя3";
+        son3.sex = true;
+        son3.age = 15;
+
+        System.out.println(dedf);
+        System.out.println(dedm);
+        System.out.println(babf);
+        System.out.println(babm);
+        System.out.println(father);
+        System.out.println(mother);
+        System.out.println(son1);
+        System.out.println(son2);
+        System.out.println(son3);
+
+    }
+
+    public static class Human
+    {
+        //Написать тут ваш код
+        String name;
+        boolean sex;
+        int age;
+        ArrayList<Human> children = new ArrayList<Human>();
+
+        public String toString()
+        {
+            String text = "";
+            text += "Имя: " + this.name;
+            text += ", пол: " + (this.sex ? "мужской" : "женский");
+            text += ", возраст: " + this.age;
+
+            int childCount = this.children.size();
+            if (childCount > 0)
+            {
+                text += ", дети: "+this.children.get(0).name;
+
+                for (int i = 1; i < childCount; i++)
+                {
+                    Human child = this.children.get(i);
+                    text += ", "+child.name;
+                }
+            }
+
+            return text;
+        }
+    }
+
+}
