@@ -1,0 +1,133 @@
+package com.javarush.test.level09.lesson11.bonus03;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+
+/* Задача по алгоритмам
+Задача: Пользователь вводит с клавиатуры список слов (и чисел). Слова вывести в возрастающем порядке, числа - в убывающем.
+Пример ввода:
+Вишня
+1
+Боб
+3
+Яблоко
+2
+0
+Арбуз
+Пример вывода:
+Арбуз
+3
+Боб
+2
+Вишня
+1
+0
+Яблоко
+*/
+
+public class Solution
+{
+    public static void main(String[] args) throws Exception
+    {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        ArrayList<String> list = new ArrayList<String>();
+
+        while (true)
+        {
+            String s = reader.readLine();
+            if (s.isEmpty()) break;
+            list.add(s);
+        }
+
+        String[] array = list.toArray(new String[list.size()]);
+        sort(array);
+
+        for (String x : array)
+        {
+            System.out.println(x);
+        }
+    }
+
+    public static void sort(String[] array)
+    {
+        //Напишите тут ваш код
+        ArrayList<String> words = new ArrayList<String>();
+        ArrayList<String> digits = new ArrayList<String>();
+        ArrayList<Integer> indexw = new ArrayList<Integer>();
+        ArrayList<Integer> indexd = new ArrayList<Integer>();
+
+        String s = null;
+        int z = 0;
+
+        for (int i = 0; i < array.length; i++)
+        {
+            if (isNumber(array[i]))
+            {
+                digits.add(array[i]);
+                indexd.add(i);
+            }
+            else
+            {
+                words.add(array[i]);
+                indexw.add(i);
+            }
+        }
+
+        for (int i = 0; i < words.size(); i++)
+        {
+            for (int j = 0; j < words.size() - 1; j++)
+            {
+                if (isGreaterThen(words.get(j), words.get(j+1)))
+                {
+                    s = words.get(j);
+                    words.set(j, words.get(j+1));
+                    words.set(j+1, s);
+                }
+            }
+        }
+        z = Integer.parseInt(digits.get(0));
+        for (int i = 0; i < digits.size(); i++)
+        {
+            for (int j = 0; j < digits.size() - 1; j++)
+            {
+                if (Integer.parseInt(digits.get(j)) < Integer.parseInt(digits.get(j+1)))
+                {
+                    s = digits.get(j);
+                    digits.set(j, digits.get(j+1));
+                    digits.set(j+1, s);
+                }
+            }
+        }
+
+        for (int i = 0; i < words.size(); i++)
+        {
+            array[indexw.get(i)] = words.get(i);
+        }
+
+        for (int i = 0; i < digits.size(); i++)
+        {
+            array[indexd.get(i)] = digits.get(i);
+        }
+
+    }
+
+    //Метод для сравнения строк: 'а' больше чем 'b'
+    public static boolean isGreaterThen(String a, String b)
+    {
+        return a.compareTo(b) > 0;
+    }
+
+
+    //строка - это на самом деле число?
+    public static boolean isNumber(String s)
+    {
+        if (s.length() == 0) return false;
+
+        for (char c : s.toCharArray())
+        {
+            if (!Character.isDigit(c) && c != '-') return false;
+        }
+        return true;
+    }
+}
