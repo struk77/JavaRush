@@ -1,0 +1,43 @@
+package com.javarush.test.level10.lesson11.home08;
+
+import java.util.ArrayList;
+import java.util.Collection;
+
+/* Массив списков строк
+Создать массив, элементами которого будут списки строк. Заполнить массив любыми данными и вывести на их экран.
+*/
+
+public class Solution
+{
+    public static void main(String[] args)
+    {
+        ArrayList<String>[] arrayOfStringList =  createList();
+        printList(arrayOfStringList);
+    }
+
+    public static ArrayList<String>[] createList()
+    {
+        //Напишите тут ваш код
+        String test = "test";
+        ArrayList<String> list = new ArrayList<String>();
+        list.add(0, "string0");
+        list.add(1, "string1");
+        list.add(2, "string2");
+        ArrayList<String>[] arrayLists = new ArrayList[2];
+        arrayLists[0] = list;
+        arrayLists[1] = list;
+
+        return arrayLists;
+    }
+
+    public static void printList(ArrayList<String>[] arrayOfStringList)
+    {
+        for (ArrayList<String> list: arrayOfStringList)
+        {
+            for (String s : list)
+            {
+                System.out.println(s);
+            }
+        }
+    }
+}
