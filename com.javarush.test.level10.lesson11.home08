@@ -1,7 +1,6 @@
 package com.javarush.test.level10.lesson11.home08;
 
 import java.util.ArrayList;
-import java.util.Collection;
 
 /* Массив списков строк
 Создать массив, элементами которого будут списки строк. Заполнить массив любыми данными и вывести на их экран.
