@@ -18,37 +18,22 @@ public class Solution
         int age, weight, height;
         boolean sex;
 
-        public void setName(String name)
+        public Human(String name)
         {
             this.name = name;
         }
 
-        public void setFamilyName(String familyName)
-        {
-            this.familyName = familyName;
-        }
-
-        public void setAge (int age)
+        public Human(int age)
         {
             this.age = age;
         }
 
-        public void setWeight (int weight)
-        {
-            this.weight = weight;
-        }
-
-        public void setHeight (int height)
-        {
-            this.height = height;
-        }
-
-        public void setSex (boolean sex)
+        public Human(boolean sex)
         {
             this.sex = sex;
         }
 
-        public void fullData (String name, String familyName, int weight, int height, int age, boolean sex)
+        public Human(String name, String familyName, int weight, int height, int age, boolean sex)
         {
             this.name = name;
             this.familyName = familyName;
@@ -58,22 +43,43 @@ public class Solution
             this.sex = sex;
         }
 
-        public void setFullName (String name, String familyName)
+        public Human(String name, String familyName)
         {
             this.name = name;
             this.familyName = familyName;
         }
 
-        public void setMeasures (int weight, int height)
+        public Human(int weight, int height)
         {
             this.weight = weight;
             this.height = height;
         }
 
-        public void initialize(String name, boolean sex, Human father)
+        public Human(String name, boolean sex, Human father)
         {
             this.name = name;
             this.familyName = father.familyName;
+            this.sex = sex;
+        }
+
+        public Human(int age, String name)
+        {
+            this.age = age;
+            this.name = name;
+        }
+
+        public Human(String name, String familyName, int age)
+        {
+            this.name = name;
+            this.familyName = familyName;
+            this.age = age;
+        }
+
+        public Human(String name, String familyName, boolean sex, int age)
+        {
+            this.name = name;
+            this.familyName = familyName;
+            this.age = age;
             this.sex = sex;
         }
     }
