@@ -1,0 +1,80 @@
+package com.javarush.test.level10.lesson11.home06;
+
+/* Конструкторы класса Human
+Напиши класс Human с 6 полями. Придумай и реализуй 10 различных конструкторов для него. Каждый конструктор должен иметь смысл.
+*/
+
+public class Solution
+{
+    public static void main(String[] args)
+    {
+
+    }
+
+    public static class Human
+    {
+        //напишите тут ваши переменные и конструкторы
+        String name, familyName;
+        int age, weight, height;
+        boolean sex;
+
+        public void setName(String name)
+        {
+            this.name = name;
+        }
+
+        public void setFamilyName(String familyName)
+        {
+            this.familyName = familyName;
+        }
+
+        public void setAge (int age)
+        {
+            this.age = age;
+        }
+
+        public void setWeight (int weight)
+        {
+            this.weight = weight;
+        }
+
+        public void setHeight (int height)
+        {
+            this.height = height;
+        }
+
+        public void setSex (boolean sex)
+        {
+            this.sex = sex;
+        }
+
+        public void fullData (String name, String familyName, int weight, int height, int age, boolean sex)
+        {
+            this.name = name;
+            this.familyName = familyName;
+            this.age = age;
+            this.weight = weight;
+            this.height = height;
+            this.sex = sex;
+        }
+
+        public void setFullName (String name, String familyName)
+        {
+            this.name = name;
+            this.familyName = familyName;
+        }
+
+        public void setMeasures (int weight, int height)
+        {
+            this.weight = weight;
+            this.height = height;
+        }
+
+        public void initialize(String name, boolean sex, Human father)
+        {
+            this.name = name;
+            this.familyName = father.familyName;
+            this.sex = sex;
+        }
+    }
+}
